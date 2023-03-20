@@ -4,7 +4,7 @@ metadata:
   name: inbox-to-event-a
 spec:
   bootstrapServers:
-    - the-cluster-kafka-bootstrap.dmartino-serverless:9092
+    - the-cluster-kafka-bootstrap.NAMESPACE:9092
   topics:
     - inbox
   sink:
@@ -20,7 +20,7 @@ metadata:
   name: avro-to-event-b
 spec:
   bootstrapServers:
-    - the-cluster-kafka-bootstrap.dmartino-serverless:9092
+    - the-cluster-kafka-bootstrap.NAMESPACE:9092
   topics:
     - avro
   sink:

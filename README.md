@@ -36,6 +36,7 @@ docker push quay.io/USERNAME/serverless-api-ingester-demo:0.1
 
 Deploy to your current namespace with (**note**: replace the image reference if you built the image):
 ```bash
+# Update image to actual registry if needed
 oc apply -f deploy/demo.yaml
 ```
 
@@ -107,6 +108,7 @@ The routing code is defined in the `onRouterEvent` method of [DemoIngester](./sr
 
 Deploy the `KafkaSource` [all-to-router](./deploy/kafka-source-source-routing.yaml) that listens both the topics and triggers the routing function:
 ```bash
+# Update NAMESPACE to match your current namespace
 oc apply -f deploy/kafka-source-source-routing.yaml 
 ```
 
@@ -161,6 +163,7 @@ Deploy the `KafkaSource`s [inbox-to-event-a and avro-to-event-b](./deploy/kafka-
 ```bash
 # Remove the other instance as it would try to manage the events twice
 oc delete -f deploy/kafka-source-source-routing.yaml
+# Update NAMESPACE to match your current namespace
 oc apply -f deploy/kafka-source-path-routing.yaml 
 ```
 

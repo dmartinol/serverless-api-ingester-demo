@@ -4,7 +4,7 @@ metadata:
   name: all-to-router
 spec:
   bootstrapServers:
-    - the-cluster-kafka-bootstrap.dmartino-serverless:9092
+    - the-cluster-kafka-bootstrap.NAMESPACE:9092
   topics:
     - inbox
     - avro
