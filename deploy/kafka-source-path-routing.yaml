@@ -1,0 +1,31 @@
+apiVersion: sources.knative.dev/v1beta1
+kind: KafkaSource
+metadata:
+  name: inbox-to-event-a
+spec:
+  bootstrapServers:
+    - the-cluster-kafka-bootstrap.dmartino-serverless:9092
+  topics:
+    - inbox
+  sink:
+    uri: /eventA
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: serverless-api-ingester-demo
+---
+apiVersion: sources.knative.dev/v1beta1
+kind: KafkaSource
+metadata:
+  name: avro-to-event-b
+spec:
+  bootstrapServers:
+    - the-cluster-kafka-bootstrap.dmartino-serverless:9092
+  topics:
+    - avro
+  sink:
+    uri: /eventB
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: serverless-api-ingester-demo

@@ -1,0 +1,15 @@
+apiVersion: sources.knative.dev/v1beta1
+kind: KafkaSource
+metadata:
+  name: all-to-router
+spec:
+  bootstrapServers:
+    - the-cluster-kafka-bootstrap.dmartino-serverless:9092
+  topics:
+    - inbox
+    - avro
+  sink:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: serverless-api-ingester-demo

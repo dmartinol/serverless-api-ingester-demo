@@ -1,0 +1,13 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: serverless-api-ingester-demo
+spec:
+  template:
+    metadata:
+      labels:
+        app: serverless-api-ingester-demo
+    spec:
+      containers:
+        - image: quay.io/dmartino/serverless-api-ingester-demo:0.1
+          imagePullPolicy: Always
